@@ -1,0 +1,96 @@
+# Guia de arena
+### Introduccion
+* En preconstruido la mayoria de mazos pueden hacer >10 de daño de mano:
+  + **Druida** [[Force of Nature]] + [[Savage Roar]]
+  + **Mago** [[Pyroblast]] / 2x [[Fireball]]
+  + **Guerrero** [[Grommash Hellscream]] + [[Cruel Taskmaster]]
+  + **Brujo** [[Doomguard]] + [[Power Overwhelming]]
+  + **Picaro** [[Deadly Poison]] + [[Tinker's Sharpsword Oil]] + [[Blade Flurry]]
+* Es la razon por la que [[Majordomo Executus]] ... 💩
+* Los mazos aleatorios de arena no te permiten hacer eso.
+* El resultado de la partida depende principalmente de los esbirros.
+* Cuatro ideas que pensar:
+  + **Iniciativa**: el jugador que no la tiene debe responder a lo que hace el otro.
+  + **Presencia**: medida relativa de la "fuerza" en tu tablero respecto al del oponente.
+  + **Jugo**: cuanta ventaja se le puede sacar al uso de los recursos (mana, cartas, vidas)
+  + **Presion**: es la diferencia de vidas junto con la amenaza que supone tu tablero.
+* Algunas relaciones
+  + Sacarle jugo a tus cartas te da presencia a largo plazo y mas opciones.
+  + Tener una presencia fuerte te da presion
+  + Tener presencia y la iniciativa te permite atacar de manera favorablemente jugosa
+  + Un enemigo presionado se puede ver obligado a hacer jugadas poco jugosas.
+  + Muchas veces la jugada que usa todo el jugo tambien aumenta la presencia.  
+    Pero no siempre! Se hace la distinccion para los casos interesantes,
+
+#### Ejemplo de jugo vs. presencia
+* Tu lado del tablero esta vacio. El enemigo tiene una 2/3 y una 3/2.
+* Tienes {5} y tu mano consiste en un [[Bomb Lobber]] y una [[Pit Fighter]].
+1. [[Bomb Lobber]] garantiza el 2x1 inmediatamente → mas **jugo**.  
+   Prepara bajar una [[Pit Fighter]] cuando el enemigo este sin fuelle.  
+   El enemigo lo puede castigar bajando un 5/5.
+2. [[Pit Fighter]] es un cuerpo 5/6 por {5} → mas **presencia**  
+   Pone una amenaza mas grande en el tablero.  
+   El enemigo lo puede castigar echandole una [[Fireball]].
+
+#### Ejemplo de jugo y presencia
+El [[Fire Elemental]] suele matar algo cuando entra en juego y tiene un cuerpo enorme.  
+Contempla esos **JODIDOS MUSCULOS** <sup>HECHOS POR DIOSES</sup>
+
+
+### Hacer el mazo
+* Intenta escoger cartas que den **presencia** y/o **jugo**.
+* **Ten en cuenta en todo momento la curva!!**
+  + Las puntuaciones de las cartas estan calculadas "en el vacio".
+  + Tener al menos una carta para cada coste 2-6 ayuda a que no sobren manas.
+  + Intenta tener al menos 6 criaturas de coste {2} para los primeros turnos.
+* **Cartas con jugo**: crean situaciones de 2x1 para tu enemigo. Tres categorias:
+  + **Proactivas**: [[Piloted Shredder]] necesita dos ataques para ser destruido.
+  + **Reactivas**: [[Polymorph]]+ping neutraliza un shredder usando una sola carta.
+  + **Mixtas**: [[Bane of Doom]] mata un bicho enemigo y te da uno a ti.
+* **Cartas con presencia**:
+  + Criaturas de coste {X} con 2X de stats (llamado "el test vanilla").
+  + Esbirros persistentes y dificiles de matar (eg, [[Piloted Shredder]]).
+  + El sigilo protege tu presencia hasta un momento que te sea favorable usarla.
+  * Criaturas con habilidades como toque mortal o congelar
+  + La mayoria de armas dan mucho daño por su coste de mana.
+
+### Jugandolo
+
+* **Suma en todo momento** cuanto **daño tienes** en mesa y mano.
+* Si una **partida larga no te favorece**, presiona para **que no llegue ahi**.
+* **Ten siempre un plan para ganar**.
+* Intenta gastar todos los **cristales de mana** cada turno.
+* **Controlar el tablero es** una parte **fundamental** de la arena.
+* **No te sobre-extiendas** antes de un turno peligroso (turno 6 vs mago con [[Flamestrike]])
+* Pero si el mago no echa un [[Flamestrike]] obvio, es bastante posible que no lo tenga.  
+  Extenderse un poco mas exprime jugo de la situacion.
+* **No te arriesges innecesariamente**.
+  + Si vas ganando, juega seguro para mantener la ventaja.
+  + Si vas perdiendo, tomar algun riesgo puede remontarte la partida.
+
+
+### Miscelaneo
+* **3 victorias (WR: 50%)**: Da 3 premios y se recupera la inversion de 150g.
+* **7 victorias (WR: 70%)**: Premio de 150g garantizado. Profiteroles!
+  (A veces con menos victorias tambien te toca 150g!)
+* **Infinite arena player**: alguien que puede encadenar arenas indefinidamente
+* El mejor tier list en mi opinion es el de http://ggoatgaming.com/tierlist/
+
+### Anexo: Turnos peligrosos
+
+| Clase         | Carta               | Coste    | Calidad | Efecto          |
+| ------------- | ------------------- | -------- | ------- | --------------- |
+| Mago          | [[Flamestrike]]     | {7}      | Basica  | 4 daño          |
+| Paladin       | [[Consecration]]    | {4}      | Basica  | 2 daño          |
+| Druida        | [[Swipe]]           | {4}      | Basica  | 4+1 daño        |
+| Sacerdote     | [[Holy Nova]]       | {5}      | Basica  | 2 daño          |
+| Mago          | [[Blizzard]]        | {6}      | Rara    | 2 daño, congela |
+| Brujo         | [[Hellfire]]        | {5}      | Basica  | 3 daño (todo)   |
+| Guerrero      | [[Whirlwind]]       | {1}      | Basica  | 1 daño (todo)   |
+| Chaman        | [[Lightning Storm]] | {5}      | Rara    | 2-3 daño        |
+| Picaro        | [[Fan of Knives ]]  | {3}      | Basica  | 1 daño, roba    |
+| Picaro        | [[Blade Flurry]]    | {2}      | Rara    | daño del arma   |
+
+
+----
+Basada en las guias de http://hearthstoneplayers.com/contributor/adwcta/
