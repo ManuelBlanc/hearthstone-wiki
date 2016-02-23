@@ -7,7 +7,7 @@ html(lang='en')
 			meta(name='viewport', content='width=device-width, initial-scale=1')
 
 			link(href='img/favicon.ico?v=1' rel='shortcut icon' type='image/x-icon')
-			title Guia Arena -- michis.me
+			title Guia Arena - michis.me
 
 			link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
 			link(href='/style.css', rel='stylesheet')
@@ -15,12 +15,15 @@ html(lang='en')
 			script(defer src='//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
 			script(defer src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
 			script(defer src='//cdnjs.cloudflare.com/ajax/libs/showdown/1.3.0/showdown.js')
+
 			script(defer src='/card_tooltips.js')
+			script(defer src='/main.js')
 
 	body
 		.container
 			.row
 				.col-md-10.col-md-offset-1#article
-					h1 Cargando...
-			a.ribbon(href='https://github.com/ManuelBlanc' title="Fork me on GitHub")
+					h1 Whoops :(
+					p.lead Parece que tienes JavaScript desactivado.
+			a.ribbon(href='https://github.com/ManuelBlanc/hearthstone-wiki/wiki' title="Fork me on GitHub")
 				| Fork me on GitHub
