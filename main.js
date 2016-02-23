@@ -1,6 +1,7 @@
 (function($, showdown) {
 	"use strict";
 
+	var TITLE_SUFFIX = " - Michis.Me";
 	var WIKI_URL     = "https://github.com/ManuelBlanc/hearthstone-wiki/wiki/";
 	var WIKI_RAW_URL = "https://raw.githubusercontent.com/wiki/ManuelBlanc/hearthstone-wiki/";
 
@@ -35,7 +36,8 @@
 		extensions: ["hs_markdown", custom_extensions]
 	});
 
-	function setLocation(target, replace) {
+	function setLocation(target) {
+		document.title = target.replace(/-/g, " ") + TITLE_SUFFIX;
 		location.replace(location.href.replace(location.hash, "#!/" + target));
 		$("a.ribbon").attr("href", WIKI_URL + target);
 	}
@@ -47,8 +49,8 @@
 		}
 		else {
 			article_name = "Home";
-			setLocation(article_name);
 		}
+		setLocation(article_name);
 		return article_name;
 	}
 
@@ -68,7 +70,7 @@
 			$("#article").html(converter.makeHtml(contents));
 		})
 		.fail(function(jqXHR, textStatus, errorThrown) {
-			setLocation(jqXHR.status);
+			setLocation(jqXHR.status.toString());
 			$("#article").html("<h1>" + jqXHR.status + " - " + errorThrown + "</h1>");
 		})
 		.always(function() {

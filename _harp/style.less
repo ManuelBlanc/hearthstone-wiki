@@ -1,17 +1,22 @@
 
 body {
-	background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%);
-	background-repeat: no-repeat;
+	background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%) no-repeat;
 	background-attachment: fixed;
 }
+
+@screen-sm-min: 768px;
+
 .container {
-	border-radius: 10px;
 	background-color: #fff;
 	box-shadow: 0 0 20px #000;
-	margin-top: 5vh;
 	padding-top: 5vh;
 	padding-bottom: 5vh;
-	margin-bottom: 10vh;
+
+	@media (min-width: @screen-sm-min) {
+		border-radius: 10px;
+		margin-top: 5vh;
+		margin-bottom: 10vh;
+	}
 }
 
 #article {
