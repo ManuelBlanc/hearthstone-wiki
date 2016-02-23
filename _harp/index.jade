@@ -4,10 +4,10 @@ html(lang='en')
 		block head
 			meta(charset='utf-8')
 			meta(http-equiv='X-UA-Compatible', content='IE=edge')
-			meta(name='viewport', content='width=device-width, initial-scale=1')
+			meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
 
 			link(href='img/favicon.ico?v=1' rel='shortcut icon' type='image/x-icon')
-			title Guia Arena - michis.me
+			title Hearthstone.MiChis.me
 
 			link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
 			link(href='style.css', rel='stylesheet')
@@ -22,8 +22,14 @@ html(lang='en')
 	body
 		.container
 			.row
-				.col-md-10.col-md-offset-1#article
-					h1 Whoops :(
-					p.lead Parece que tienes JavaScript desactivado.
-			a.ribbon(href='https://github.com/ManuelBlanc/hearthstone-wiki/wiki' title="Fork me on GitHub")
-				| Fork me on GitHub
+				.col-md-12
+					h1.page-title Hearthstone – MiChis.me
+			.row
+				.col-md-12.pilltainer
+					.row
+						main#main.col-md-10.col-md-offset-1
+							//- Default contents
+							h1 Whoops :(
+							p.lead Parece que tienes JavaScript desactivado.
+		a.ribbon(href='https://github.com/ManuelBlanc/hearthstone-wiki/wiki' title="Fork me on GitHub")
+			| Fork me on GitHub

@@ -1,12 +1,12 @@
 (function($, showdown) {
 	"use strict";
 
-	var TITLE_SUFFIX = " - Michis.Me";
+	var TITLE_SUFFIX = " - MiChis.me";
 	var WIKI_URL     = "https://github.com/ManuelBlanc/hearthstone-wiki/wiki/";
 	var WIKI_RAW_URL = "https://raw.githubusercontent.com/wiki/ManuelBlanc/hearthstone-wiki/";
 
 	// Clear the "no-javascript" message
-	$("#article").html("");
+	$("#main").html("");
 
 	// Custom showdown filters
 	var custom_extensions = function() {
@@ -36,29 +36,32 @@
 		extensions: ["hs_markdown", custom_extensions]
 	});
 
-	function setLocation(target) {
-		document.title = target.replace(/-/g, " ") + TITLE_SUFFIX;
-		location.replace(location.href.replace(location.hash, "#!/" + target));
-		$("a.ribbon").attr("href", WIKI_URL + target);
+	// 
+	function setLocation(slug) {
+		document.title = slug.replace(/-/g, " ") + TITLE_SUFFIX;
+		history.pushState(null, "", "#!/" + slug)
+		$("a.ribbon").attr("href", WIKI_URL + slug);
 	}
 
 	function extractArticleName() {
-		var article_name;
-		if (/^#!\/[A-Za-z0-9\-]+$/.test(location.hash)) {
+		var article_name = null;
+		if (/^#!\/[a-z][a-z0-9\-]+$/i.test(location.hash)) {
 			article_name = location.hash.substr(3).trim().replace(/\s+/, "-");
 		}
-		else {
-			article_name = "Home";
-		}
-		setLocation(article_name);
 		return article_name;
 	}
+
 
 	function loadPage() {
 
 		var page_path = extractArticleName();
 
-		$("#article").addClass("loading");
+		if (page_path === null) {
+			page_path = "Home";
+			setLocation("Home");
+		}
+
+		$("#main").addClass("loading");
 
 		// Make the request
 		$.ajax({
@@ -67,14 +70,20 @@
 		})
 		.done(function(contents, textStatus, jqXHR) {
 			// Present it
-			$("#article").html(converter.makeHtml(contents));
+			setTimeout(function() { $("#main").html(converter.makeHtml(contents)); }, 1000);
 		})
 		.fail(function(jqXHR, textStatus, errorThrown) {
-			setLocation(jqXHR.status.toString());
-			$("#article").html("<h1>" + jqXHR.status + " - " + errorThrown + "</h1>");
+			$("#main").html(
+				"<h1>" + jqXHR.status + " - " + errorThrown + "</h1>" +
+				"<p class='lead'>Go " + 
+					"<a href='javascript:history.back();void(0);'>back</a>" +
+					" or go " +
+					"<a href='#!/Home'>home</a>." +
+				"</p>"
+			);
 		})
 		.always(function() {
-			$("#article").removeClass("loading");
+			setTimeout(function() { $("#main").removeClass("loading"); }, 1000);
 		});
 	}
 
