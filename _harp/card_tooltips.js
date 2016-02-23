@@ -42,10 +42,10 @@
 		};
 
 		$("body").popover({
+			viewport: "main",
 			selector: ".hs-card:not(.invalid)",
-			container: "body",
 			html: true,
-			placement: "right",
+			placement: "auto right",
 			trigger: "hover",
 			template: "<div class='popover' role='tooltip'><div class='popover-content'></div></div>",
 			content: function() {

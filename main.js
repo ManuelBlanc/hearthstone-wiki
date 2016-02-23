@@ -11,11 +11,6 @@
 	// Custom showdown filters
 	var custom_extensions = function() {
 		return [
-			{ // Give bootstrap class to tables
-				type: "output",
-				regex: /<table>/g,
-				replace: "<table class='table table-bordered'>",
-			},
 			{ // Process MediaWiki-type links
 				type: "lang",
 				regex: /\[\[([^\]]+)\]\]/g,
@@ -36,10 +31,9 @@
 		extensions: ["hs_markdown", custom_extensions]
 	});
 
-	// 
 	function setLocation(slug) {
 		document.title = slug.replace(/-/g, " ") + TITLE_SUFFIX;
-		history.pushState(null, "", "#!/" + slug)
+		//history.pushState(null, "", "#!/" + slug);
 		$("a.ribbon").attr("href", WIKI_URL + slug);
 	}
 
@@ -51,16 +45,25 @@
 		return article_name;
 	}
 
+	function upgradeTables(selector) {
+		$(selector).find("table").each(function() {
+			$(this)
+				.addClass("table table-bordered")
+				.wrap("<div class='table-responsive'>");
+		});
+	}
+
 
 	function loadPage() {
 
 		var page_path = extractArticleName();
 
 		if (page_path === null) {
+			location.replace(location.href.replace(location.hash, "#!/Home"));
 			page_path = "Home";
-			setLocation("Home");
 		}
 
+		setLocation(page_path);
 		$("#main").addClass("loading");
 
 		// Make the request
@@ -70,7 +73,8 @@
 		})
 		.done(function(contents, textStatus, jqXHR) {
 			// Present it
-			setTimeout(function() { $("#main").html(converter.makeHtml(contents)); }, 1000);
+			$("#main").html(converter.makeHtml(contents));
+			upgradeTables("#main");
 		})
 		.fail(function(jqXHR, textStatus, errorThrown) {
 			$("#main").html(
@@ -83,7 +87,7 @@
 			);
 		})
 		.always(function() {
-			setTimeout(function() { $("#main").removeClass("loading"); }, 1000);
+			$("#main").removeClass("loading");
 		});
 	}
 

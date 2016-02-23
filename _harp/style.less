@@ -34,14 +34,13 @@ h1.page-title {
 
 	font-family: 'Passion One', cursive, sans-serif;
 	//font-weight: bolder;
-	font-size: 50px;
 
-	@media (reader) {
-		text-decoration: underline;
-		font-weight: normal;
+	font-size: 30px;
+	@media (min-width: @screen-sm-min) {
+		font-size: 50px;
+		margin-bottom: 0;
 	}
 
-	margin-bottom: 0;
 	padding-left: 1em;
 
 
@@ -117,7 +116,7 @@ main.loading {
 }
 .ribbon {
 	// Hide the text
-	font-size: 0;
+	text-indent: -9999px;
 	// Image
 	background: url('img/github_ribbon.png') no-repeat;
 	background-size: contain;
@@ -130,8 +129,10 @@ main.loading {
 	height: 7em;
 	width:  7em;
 	z-index: 999;
-	// Opacity
-	opacity: 1;
-	//transition: 0.5s opacity;
-	//&:hover { opacity: 1; }
+
+	// Not on mobiles
+	display: none;
+	@media (min-width: @screen-sm-min) {
+		display: block;
+	}
 }
