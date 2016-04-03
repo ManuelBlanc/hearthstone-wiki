@@ -1,9 +1,13 @@
 (function($, showdown) {
 	"use strict";
 
-	var TITLE_SUFFIX = " - MiChis.me";
-	var WIKI_URL     = "https://github.com/ManuelBlanc/hearthstone-wiki/wiki/";
-	var WIKI_RAW_URL = "https://raw.githubusercontent.com/wiki/ManuelBlanc/hearthstone-wiki/";
+	var GIT_USER  = "ManuelBlanc";
+	var REPO_NAME = "hearthstone-wiki";
+	var TITLE_SUFFIX = " : Wiki Guias";
+
+	var USER_REPO    = GIT_USER + "/" + REPO_NAME;
+	var WIKI_URL     = "https://github.com/" + USER_REPO + "/wiki/";
+	var WIKI_RAW_URL = "https://raw.githubusercontent.com/wiki/" + USER_REPO + "/";
 
 	// Clear the "no-javascript" message
 	$("#main").html("");
@@ -91,7 +95,7 @@
 		});
 	}
 
-	$(window).on('hashchange', loadPage);
+	$(window).on("hashchange", loadPage);
 	loadPage();
 
 })(jQuery, showdown);

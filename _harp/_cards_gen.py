@@ -23,5 +23,7 @@ cards_dict = {
 	for card in card_list
 }
 
-with open("cards.json", "w") as out:
+with open("card_data.js", "w") as out:
+	out.write("window.card_data = ");
 	out.write(json.dumps(cards_dict, ensure_ascii=False).encode("utf8"))
+	out.write(";");

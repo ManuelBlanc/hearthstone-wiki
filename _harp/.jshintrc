@@ -1,0 +1,13 @@
+{
+	"undef"   	: true,
+	"unused"  	: "vars",
+	"browser" 	: true,
+	"jquery"  	: true,
+	"devel"   	: true,
+	"quotmark"	: "double",
+	"indent"  	: 4,
+	"trailing"	: false,
+	"globals": {
+		"showdown"	: false
+	}
+}

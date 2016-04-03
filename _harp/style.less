@@ -16,20 +16,29 @@ body {
 	box-shadow: 0 0 20px black;
 
 	padding-top: 5vh;
-	padding-bottom: 5vh;
+	padding-bottom: 10vh;
 
 	min-height: 100px;
 
 	@media (min-width: @screen-sm-min) {
 		border-radius: 10px;
 		margin-top: 5vh;
-		margin-bottom: 10vh;
+		margin-bottom: 5vh;
+		padding-bottom: 5vh;
+	}
+
+	position: relative;
+	.copyright {
+		padding: 2px;
+		border: 1px solid black;
+		position: absolute;
+		bottom: 0;
+		right: 0;
 	}
 }
 
 @import url(https://fonts.googleapis.com/css?family=Passion+One);
-h1.page-title {
-
+.page-title > h1 {
 	color: white;
 
 	font-family: 'Passion One', cursive, sans-serif;
@@ -58,6 +67,9 @@ h1.page-title {
 	 @stroke-radius/2	-@stroke-radius/2	0	@stroke-color,
 	-@stroke-radius/2	 @stroke-radius/2	0	@stroke-color;
 	//*/
+}
+.page-title:hover {
+	text-decoration: none;
 }
 
 ::selection {
