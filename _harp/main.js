@@ -19,7 +19,7 @@
 				type: "lang",
 				regex: /\[\[([^\]]+)\]\]/g,
 				replace: function(_, link_text) {
-					var link_href = "#!/" + link_text.trim().replace(/\s+/g, "-");
+					var link_href = "?p=" + link_text.trim().replace(/\s+/g, "-");
 					return "[" + link_text + "]( " + link_href + ")";
 				},
 			}
@@ -37,14 +37,13 @@
 
 	function setLocation(slug) {
 		document.title = slug.replace(/-/g, " ") + TITLE_SUFFIX;
-		//history.pushState(null, "", "#!/" + slug);
 		$("a.ribbon").attr("href", WIKI_URL + slug);
 	}
 
-	function extractArticleName() {
+	function getSlugFromURL() {
 		var article_name = null;
-		if (/^#!\/[a-z][a-z0-9\-]+$/i.test(location.hash)) {
-			article_name = location.hash.substr(3).trim().replace(/\s+/, "-");
+		if (/^\?p=[a-z][a-z0-9\-]+$/i.test(location.search)) {
+			article_name = location.search.substr(3).trim();
 		}
 		return article_name;
 	}
@@ -60,20 +59,20 @@
 
 	function loadPage() {
 
-		var page_path = extractArticleName();
+		var slug = getSlugFromURL();
 
-		if (page_path === null) {
-			location.replace(location.href.replace(location.hash, "#!/Home"));
-			page_path = "Home";
+		if (slug === null) {
+			history.replaceState(null, "", "?p=Home");
+			slug = "Home";
 		}
 
-		setLocation(page_path);
+		setLocation(slug);
 		$("#main").addClass("loading");
 
 		// Make the request
 		$.ajax({
 			dataType: "text",
-			url: WIKI_RAW_URL + page_path + ".md"
+			url: WIKI_RAW_URL + slug + ".md"
 		})
 		.done(function(contents, textStatus, jqXHR) {
 			// Present it
@@ -86,7 +85,7 @@
 				"<p class='lead'>Go " + 
 					"<a href='javascript:history.back();void(0);'>back</a>" +
 					" or go " +
-					"<a href='#!/Home'>home</a>." +
+					"<a href='?p=Home'>home</a>." +
 				"</p>"
 			);
 		})
