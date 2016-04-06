@@ -9,7 +9,7 @@
 	/* Generates the HTML for a span containing the card name */
 	var generate_span_for_card = function(_, card_name) {
 		// Cleanup the card name
-		var key = card_name.replace(/[^A-Za-z '-]/g, "").toLowerCase().trim().replace(/ +/g, " ");
+		var key = card_name.replace(/[^A-Za-z ]/g, "").toLowerCase().trim().replace(/ +/g, " ");
 		var card = window.card_data[key];
 		var span = $("<span>")
 			.addClass("hs-card")

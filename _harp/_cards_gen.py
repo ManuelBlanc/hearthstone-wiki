@@ -16,7 +16,7 @@ pretty_options = {
 }
 
 cards_dict = {
-	re.sub(r"[^\x00-\x7F]", "", card["name"]["enUS"]).lower(): {
+	re.sub(r"[^A-Za-z ]", "", card["name"]["enUS"]).lower(): {
 		"id"   : card["id"],
 		"name" : card["name"]["esES"]
 	}
