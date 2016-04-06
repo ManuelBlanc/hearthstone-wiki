@@ -34,9 +34,7 @@
 
 	function setLocation(slug) {
 		document.title = slug.replace(/-/g, " ") + TITLE_SUFFIX;
-		var url_on_wiki = WIKI_URL + slug
-		$("a.ribbon").attr("href", url_on_wiki);
-		$("a.edit-button").attr("href", url_on_wiki + "/_edit");
+		$("a.edit-button").attr("href", WIKI_URL + slug + "/_edit");
 	}
 
 	function getSlugFromURL() {
