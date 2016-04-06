@@ -5,12 +5,9 @@
 	var REPO_NAME = "hearthstone-wiki";
 	var TITLE_SUFFIX = " : Wiki Guias";
 
-	var USER_REPO    = GIT_USER + "/" + REPO_NAME;
-	var WIKI_URL     = "https://github.com/" + USER_REPO + "/wiki/";
-	var WIKI_RAW_URL = "https://raw.githubusercontent.com/wiki/" + USER_REPO + "/";
-
-	// Clear the "no-javascript" message
-	$("#main").html("");
+	var USER_REPO     = GIT_USER + "/" + REPO_NAME;
+	var WIKI_URL      = "https://github.com/" + USER_REPO + "/wiki/";
+	var WIKI_RAW_URL  = "https://raw.githubusercontent.com/wiki/" + USER_REPO + "/";
 
 	// Custom showdown filters
 	var custom_extensions = function() {
@@ -37,7 +34,9 @@
 
 	function setLocation(slug) {
 		document.title = slug.replace(/-/g, " ") + TITLE_SUFFIX;
-		$("a.ribbon").attr("href", WIKI_URL + slug);
+		var url_on_wiki = WIKI_URL + slug
+		$("a.ribbon").attr("href", url_on_wiki);
+		$("a.edit-button").attr("href", url_on_wiki + "/_edit");
 	}
 
 	function getSlugFromURL() {
@@ -56,6 +55,15 @@
 		});
 	}
 
+	var main = $("#main");
+	function showTab(tabname) {
+		// Has the tabs: loading, error, content
+		main.children().hide();
+		main.children("." + tabname).show();
+	}
+
+	// Clear the "no-javascript" message
+	showTab("loading");
 
 	function loadPage() {
 
@@ -67,7 +75,7 @@
 		}
 
 		setLocation(slug);
-		$("#main").addClass("loading");
+		showTab("loading");
 
 		// Make the request
 		$.ajax({
@@ -76,21 +84,14 @@
 		})
 		.done(function(contents, textStatus, jqXHR) {
 			// Present it
-			$("#main").html(converter.makeHtml(contents));
-			upgradeTables("#main");
+			showTab("content");
+			main.find(".content-body").html(converter.makeHtml(contents));
+			main.find(".content-title").text(slug.replace(/-/g, " "));
+			upgradeTables("#main .content-body");
 		})
 		.fail(function(jqXHR, textStatus, errorThrown) {
-			$("#main").html(
-				"<h1>" + jqXHR.status + " - " + errorThrown + "</h1>" +
-				"<p class='lead'>Go " + 
-					"<a href='javascript:history.back();void(0);'>back</a>" +
-					" or go " +
-					"<a href='?p=Home'>home</a>." +
-				"</p>"
-			);
-		})
-		.always(function() {
-			$("#main").removeClass("loading");
+			showTab("error");
+			main.find(".error h1").text(jqXHR.status + " - " + errorThrown);
 		});
 	}
 

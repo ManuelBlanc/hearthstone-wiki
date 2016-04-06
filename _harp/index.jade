@@ -32,9 +32,24 @@ html(lang='en')
 						img(alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by/4.0/88x31.png')
 					.row
 						main#main.col-md-10.col-md-offset-1
-							//- Default contents
-							h1 Whoops :(
-							p.lead Parece que tienes JavaScript desactivado.						
+							.no-js
+								//- Default contents
+								h1 Whoops :(
+								p.lead Parece que tienes JavaScript desactivado.						
+							.loading Cargando ...
+							.error
+								h1 Ha ocurrido un error.
+								p.lead.
+									Volver #[a(href='javascript:history.back();void(0);') atras]
+									o a la
+									#[a(href='?p=Home') pagina principal].
+							.content
+								h1
+									span.content-title (Titulo)
+									small
+										a.edit-button(href='#') editar
+								hr
+								.content-body (Contenidos)
 
 		a.ribbon(href='https://github.com/ManuelBlanc/hearthstone-wiki/wiki' title='Fork me on GitHub')
 			| Fork me on GitHub

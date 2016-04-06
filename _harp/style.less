@@ -77,7 +77,7 @@ body {
 	//text-shadow: 0 0 5px purple;
 }
 
-main.loading {
+.loading {
 	min-height: 200px;
 	background: url('img/spinner.gif') no-repeat center;
 	text-indent: -9999px;
@@ -114,6 +114,12 @@ main.loading {
 	}
 }
 
+.content > h1 > small {
+	float: right; // EVIL
+	font-size: 0.5em;
+	vertical-align: bottom;
+}
+
 .popover {
 	background: rgba(0, 0, 0, 0);
 	border: none;
@@ -122,10 +128,6 @@ main.loading {
 	.popover-content { padding: 0; }
 }
 
-
-.container {
-	position: relative;
-}
 .ribbon {
 	// Hide the text
 	text-indent: -9999px;
